@@ -1,0 +1,46 @@
+\section{Algorithms}
+\label{sec:algo}
+
+GAIL's latest release, version 2.3, includes the following algorithms:
+\begin{enumerate} [label=\Roman*.]
+
+\item Approximation and optimization:
+
+    \begin{enumerate}[label={[\arabic*]}]
+    
+    \item \texttt{funappx\_g}: One-dimensional function approximation on bounded interval~\cite{FunappxFunmin}
+    
+    \item \texttt{funmin\_g}: Global minimum value of univariate function on a closed interval~\cite{FunappxFunmin}
+    
+    \end{enumerate}
+
+\item Integration:
+
+    \begin{enumerate}[label={[\arabic*]}, start=3, resume*]
+    
+    \item \texttt{integral\_g}: One-dimensional integration on bounded interval~\cite{ChoEtal18b}
+    
+    \item \texttt{meanMC\_g}: Monte Carlo (MC) method for estimating mean of a random variable~\cite{meanMCcubMC}
+    
+    \item \texttt{meanMC\_CLT}: MC method with Central Limit Theorem (CLT) confidence intervals for estimating mean of a random variable \cite{ChoEtal18b}
+    
+    \item \texttt{cubMC\_g}: MC method for  multiple integration \cite{meanMCcubMC}
+    
+    \item \texttt{cubSobol\_g}: Quasi-Monte Carlo (QMC) method using Sobol' cubature for multiple integration \cite{cubSobol}
+    
+    \item \texttt{cubLattice\_g}: QMC method using rank-1 lattices cubature for multiple integration \cite{cubLattice}
+    
+    \item \texttt{cubBayesLattice\_g}: Bayesian cubature method using lattice sampling for multiple integration \cite{cubBayesLattice}
+    
+    \end{enumerate}
+\item Option Pricing:
+\begin{enumerate}\setlength\itemsep{1em}
+\item \texttt{assetPath}: A class of discretized stochastic processes that model the values of an asset with respect to time \cite{ChoEtal18b}
+\item \texttt{optPayoff}: A class of option payoffs based on asset paths \cite{ChoEtal18b}
+\item \texttt{optPrice}: A class that computes the price of an option via (quasi-)Monte Carlo methods \cite{ChoEtal18b}
+\end{enumerate}
+
+\end{enumerate}
+
+
+ 

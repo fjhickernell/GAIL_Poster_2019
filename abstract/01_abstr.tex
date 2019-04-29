@@ -1,0 +1,28 @@
+\begin{abstract}
+Function approximation, optimization, and integration over (in)finite
+domains are among the most fundamental mathematical problems. They  are
+particularly challenging when the functions in consideration fluctuate
+wildly in certain parts of the domain or if the domain is high dimensional.
+Development of efficient and effective numerical algorithms for
+approximating the solutions to these problems that are based on rigorous
+mathematical frameworks, (statistical) error bounds, advanced sampling
+strategies, and careful complexity analysis remain active research areas. 
+The Guaranteed Automatic Integration Library (GAIL) %~\cite{ChoEtal18b} 
+is our multi-year research efforts directed towards addressing the
+aforementioned overarching theme. Briefly, GAIL is an open-source MATLAB
+software package with eight main algorithms based on over ten peer-reviewed
+publications, involving more than nine doctoral students and three faculty
+members in Illinois Tech as well as their international collaborators.  The
+theories behind our algorithms consider functions in cones, rather than
+balls, and then proceed to sample data points of a given function in an
+adaptive manner, placing more samples in areas where the function changes
+faster. Our algorithms are iterative in nature, with errors bounds computed
+in each iteration. They are proven to have optimal costs, with monotonic
+decreasing error estimates and stop in the first iteration where user-given
+tolerance is met.  We consistently employ proven industrial software
+development practices for GAIL such as unit and integration tests,
+searchable online and offline documentation, version control systems
+(GitHub), and agile methodology (using Trello). Our reproducible research
+have demonstrated that GAIL could outperform more established algorithms in
+various ways.   
+\end{abstract}

@@ -1,0 +1,14 @@
+& \multicolumn{2}{c}{f \mbox{ in } (1),\ \varepsilon =  10^{-6}}  \\  \hline
+ \text{Method} & \texttt{funmin\_g}  & \texttt{fminbnd} \\
+ \text{Absolute Error in $x$} &  2.4 \times 10^{-5} & 0.8 \\
+ \text{Absolute Error in $y$} & 2.0 \times 10^{-8}  & 4.0 \\
+ n & \num{ 121} & \num{   11 } \\
+ \text{Time (seconds)} & \num{ 0.0065} & \num{ 0.0011} \\  
+%
+\\
+& \multicolumn{2}{c}{f  \mbox{ in }  (2),\ \varepsilon =   10^{-6}}  \\  \hline
+ \text{Method} & \texttt{funmin\_g}  & \texttt{fminbnd} \\
+ \text{Absolute Error in $x$} &  6.2 \times 10^{-7} & 0.79 \\
+ \text{Absolute Error in $y$} & \num{0.0093} & \num{0.79 }\\
+ n & \num{ 2399} & \num{   19 } \\
+ \text{Time (seconds)} & \num{ 0.0082} & \num{ 0.0012} 
