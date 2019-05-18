@@ -1,4 +1,63 @@
 \section{Conclusions and Future Work}
 \label{sec:concl}
+We have presented a short overview of GAIL with some motivating
+examples. GAIL and the research behind the software are still under active
+development. We list in the following some of the potentially fruitful
+directions to pursue in order to strengthen the software.
 
-\scnote{Sou-Cheng working}
+For the existing algorithms, it would be worthy to conduct or develop
+large-scale tests such as work of
+~\cite{dolan2002benchmarking,floudas2013handbook} for optimization
+problems, to challenge the software for performance in terms of success
+rates, execution speed, and memory usage. These test suites could serve to
+be a more rigorous basis of comparisons with more established solvers  or
+to validate future incremental changes in our own.  
+
+Instead of using \texttt{fminbnd} in Example~\ref{eg1}, it would be better
+to use solvers that are designed for global optimization such as those from
+ MATLAB's Global Optimization Toolbox (GOT). That said, GOT does not
+guarantee returning global minimum; see~\cite{GOT}. Likewise, for 
+Example~\ref{eg4}, more extensive study can be done. An
+idea is to price Asian options with GAIL cubatures and also
+\texttt{asianbyls} from MATLAB's Financial Instruments Toolbox.
+
+We are upgrading Bayesian cubature algorithm to use Sobol' points and Walsh
+kernel whereas the current version uses rank-1 lattice points and
+shift-invariant kernel. One major advantage is that Walsh kernel based
+algorithm does not require the integrand to be periodic, which opens up
+more possibilities. Additional improvements being developed are to add
+gradient in parameter searching; this will allow using gradient descent
+method instead of heuristic search, and could possibly speed up the algorithm.
+Shift-invariant kernel used in the algorithm is currently limited to order
+of even integers which is usually fixed. Enhancements are being developed
+to avoid this constraint.
+
+Each GAIL algorithm could find itself into many high-impact application
+areas such as computational finance, machine learning, decision sciences.
+Reliable cubatures are particularly important for valuing financial
+derivatives. GAIL already contains a few option-pricing functions,  
+namely, \texttt{assetPath}, \texttt{optPayoff}, and  \texttt{optPrice}. 
+However, they have yet to elevated as a first-class citizens in
+the software library, which have to be accompanied by detailed documentation
+and unit tests suites.
+
+Currently, most of the GAIL algorithms are written and released in Matlab. Recently other computer languages are getting popular in scientific computing. Given the flexibility of GAIL software design, it could very well be ported or language interface is added to support Python, Julia and R languages.
+\begin{comment}
+\begin{enumerate}
+
+\item \texttt{assetPath}: A class of discretized stochastic processes that
+model the values of an asset with respect to time
+
+\item \texttt{optPayoff}: A class of option payoffs based on asset paths
+
+\item \texttt{optPrice}: A class that computes the price of an option via
+(quasi-)Monte Carlo methods.
+
+\end{enumerate}
+
+
+\alnote{Is there any future to support another popular scientific computing
+language? like Julia ? Should we mention Fred's idea to bring other
+collaborators? Or mention here interested collaborators contact us at--- ?}
+\scnote{QMC Community software and OO classes}
+\end{comment}

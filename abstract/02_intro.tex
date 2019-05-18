@@ -1,4 +1,51 @@
-\section{Introduction}
-\label{sec:intro}
+\section{Introduction} \label{sec:intro}
 
- TBD\\
+Numerical algorithms for integration, function approximation and
+optimization attempt to provide approximate solutions that differ from the
+true solutions by no more than a user-specified error tolerance. The
+computational cost is often determined adaptively by the algorithm based on
+the function values sampled. While adaptive algorithms are widely used in
+practice, most lack guarantees, i.e., conditions on input functions that
+ensure the error tolerance is met. The GAIL software library~\cite{ChoEtal18b},
+developed by our collaborators and us, is an attempt to provide guaranteed
+numerical algorithms with certain well-defined assumptions.
+
+The mathematical problems of concern to us involve an input function $f$
+with a domain $\mathcal{D} \subseteq \mathbb{R}^d$ for some $d \in \mathbb{N}$.
+Traditional approaches would  consider $f$ to be in some space
+$\mathcal{S}$ and derive algorithms that are guaranteed for inputs in a ball, $\{f \in \mathcal{S}: \norm{f} \le \alpha \}$, of radius $\alpha >0$.  GAIL's underlying
+theories~\cite{clancy2014cost} are built on the assumption that the input is in a
+cone, e.g., $\{f  \in \mathcal{S}:\norm{f} \le \alpha \norm{f}_w \}$ for
+some $\alpha >0$ and a weaker norm $\norm{\cdot}_w$ than $\norm{\cdot}$.  Although the GAIL originally emphasized integration problems, its scope has expanded to include function approximation and optimization.
+
+For univariate function approximation on a finite interval $[a,b]$, GAIL
+considers the space $\mathcal{S}$ to be the Sobolev space
+$\mathcal{W}^{2,\infty}[a,b]$ and constructs an approximation $\hat{f}$ as a linear
+splines such that the error estimate $\norm{f - \hat{f}} \le \varepsilon$,
+where $\varepsilon>0$ is a given
+tolerance~\cite{FunappxFunmin,clancy2014cost}.
+
+For univariate function minimization~\cite{FunappxFunmin}, GAIL builds on
+the function approximation approach and bounds segments of $f$  between
+sampling points with $\hat{f}$ and a quadratic function fitted to the
+neighboring data points, so that we could bound the  error $|x^*-\hat{x}|$,
+where $x^* := \argmin_{x \in [a,b]} f(x)$ and $\hat{x}$ is an approximate location of the 
+minimum.
+
+Multiple cubatures~\cite{cubBayesLattice,cubSobol,cubLattice,meanMCcubMC}
+are available from GAIL for high-dimensional integration, $ \mu = \int_{x
+\in [0,1]^d} f(x) \, dx$ with guaranteed accuracy. The adaptive quasi-Monte Carlo algorithms \texttt{cubSobol\_g}
+and \texttt{cubLattice\_g} assume that the Fourier coefficients of $f$ decay steadily,
+whereas \texttt{cubBayesLattice\_g} considers $f$ to be an instance of a
+Gaussian process.
+
+Another key feature to all GAIL algorithms is that the number of samples, $n$, is automatically determined by data-driven approaches. GAIL's
+univariate approximation and optimization algorithms place sampling points
+at higher density where $f$  changes faster. Hence, they tend to be more
+capable of handling functions with spikes efficiently. Error bounds derived
+from the cone framework are also computed and used in stopping criteria of
+these iterative methods.
+
+We refer readers to the cited references for full details, definitions of
+cones, pseudocode,  and proofs of optimal order of costs.
+ %in terms of $n$,   $\norm{f}$, and/or $\varepsilon$.

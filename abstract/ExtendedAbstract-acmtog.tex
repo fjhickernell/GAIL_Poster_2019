@@ -1,5 +1,11 @@
 \documentclass[acmtog, authorversion]{acmart}
 
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
+\acmDOI{} 
+\setcopyright{none}
+
 \usepackage{booktabs} % For formal tables
 
 % TOG prefers author-name bib system with square brackets
@@ -9,6 +15,10 @@
 \usepackage[ruled]{algorithm2e} % For algorithms
 \usepackage{enumitem}
 \usepackage{siunitx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{bigints}
+\usepackage{textcomp}
 
 \renewcommand{\algorithmcfname}{ALGORITHM}
 \SetAlFnt{\small}
@@ -18,7 +28,8 @@
 \IncMargin{-\parindent}
 
 % Metadata Information
-\acmJournal{TOG}
+% \acmJournal{TOMS} % {TOG}https://www.overleaf.com/6495666636xyhrjfrqtzzc
+\acmJournal{} % {TOG}https://www.overleaf.com/6495666636xyhrjfrqtzzc
 \acmVolume{X}
 \acmNumber{X}
 \acmArticle{XX}
@@ -28,7 +39,7 @@
 % Copyright
 %\setcopyright{acmcopyright}x
 %\setcopyright{acmlicensed}
-%\setcopyright{rightsretained}
+%\setcopyright{rightsretained}x
 %\setcopyright{usgov}
 \setcopyright{usgovmixed}
 %\setcopyright{cagov}
@@ -38,19 +49,47 @@
 \acmDOI{0000001.0000001_2}
 
 % Paper history
-\received{April 2019}
+\received{May 1, 2019}
 \received{Month 2019}
 \received[final version]{Month 2019}
 \received[accepted]{Month 2019}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bvec}[1]{\boldsymbol{#1}}
+\newcommand{\vt}{\bvec{t}}
+\newcommand{\E}{\mathrm{e}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\vx}{\bvec{x}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \newcommand{\jhnote}[1]{{\textcolor{blue}{FH: #1}}}
 \newcommand{\scnote}[1]{{\textcolor{red}{SC: #1}}}
 \newcommand{\alnote}[1]{{\textcolor{orange}{JR: #1}}}
-\newcommand{\norm}[1]{\lVert #1\rVert}
 
 % Document starts
 \begin{document}
+
+\copyrightyear{2019} 
+\acmYear{2019} 
+\setcopyright{rightsretained} 
+\acmConference[PEARC '19]{Practice and Experience in Advanced Research Computing}{July 28-August 1, 2019}{Chicago, IL, USA}
+\acmBooktitle{Practice and Experience in Advanced Research Computing (PEARC '19), July 28-August 1, 2019, Chicago, IL, USA}
+\acmDOI{10.1145/3332186.3333261}
+\acmISBN{978-1-4503-7227-5/19/07}
+
+
+\CopyrightYear{2019} 
+\setcopyright{rightsretained} 
+\conferenceinfo{PEARC '19}{July 28-August 1, 2019, Chicago, IL, USA}\isbn{978-1-4503-7227-5/19/07}
+\doi{https://doi.org/10.1145/3332186.3333261}
+
+
+
 % Title portion
 \title{A Brief Introduction to GAIL ({\sc Guaranteed Automatic Integration Library}) Version 2.3}
 
@@ -105,7 +144,7 @@
   \country{USA}}
 \email{hickernell@iit.edu} 
 
-\renewcommand\shortauthors{Choi, S.-C. et al}
+\renewcommand\shortauthors{Choi, S.-C. T. et al}
 
 
 \input{01_abstr} 
@@ -116,55 +155,83 @@
 % http://dl.acm.org/ccs.cfm
 % Please copy and paste the code instead of the example below.
 %
+%
+%How To Assign CCS Concepts:
+%Browse the CCS by clicking through the desired nodes (subject areas) or scroll through the Flat View
+%Click on "Assign This CCS Concept" from the left menu, or on the subject itself in the Flat View, when you have reached the appropriate level of subject granularity
+%Choose the proper relevance of the chosen CCS concept (High, Medium, Low)
+%The full classification you have chosen so far will display; adjust the relevance of the current node if necessary
+%Choose [continue] to find and assign the next CCS Concept
+%Once complete, click on "Generate CCS Codes"
+%Copy and Paste the appropriately formated CCS Coding to the item you are classifying
+%Choose [done] only after you have pasted the information into the item you are classifying
+%
+%Guidelines For Assigning CCS Concepts:
+%Choose as many classifications as you feel appropriate to best convey the subject areas of your item
+%The average number of classificaitons per item is three
+%It is not recommended to choose more than five
+%Each classification chosen must be assigned a relevance based on a three level scale (High 500, Medium 300, Low 100)
+%Be sure and choose at least one at the highest relevance (500)
+%It is not recommended to assign the highest relevance to more than one CCS concept
+
 \begin{CCSXML}
 <ccs2012>
- <concept>
-  <concept_id>10010520.10010553.10010562</concept_id>
-  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
-  <concept_significance>500</concept_significance>
- </concept>
- <concept>
-  <concept_id>10010520.10010575.10010755</concept_id>
-  <concept_desc>Computer systems organization~Redundancy</concept_desc>
-  <concept_significance>300</concept_significance>
- </concept>
- <concept>
-  <concept_id>10010520.10010553.10010554</concept_id>
-  <concept_desc>Computer systems organization~Robotics</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
- <concept>
-  <concept_id>10003033.10003083.10003095</concept_id>
-  <concept_desc>Networks~Network reliability</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
+<concept>
+<concept_id>10002950.10003648.10003671</concept_id>
+<concept_desc>Mathematics of computing~Probabilistic algorithms</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003752.10003809.10003636.10003815</concept_id>
+<concept_desc>Theory of computation~Numeric approximation algorithms</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10002950.10003705.10011686</concept_id>
+<concept_desc>Mathematics of computing~Mathematical software performance</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10011007.10011074</concept_id>
+<concept_desc>Software and its engineering~Software creation and management</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+<concept>
+<concept_id>10011007.10011074.10011134</concept_id>
+<concept_desc>Software and its engineering~Collaboration in software development</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[500]{Computer systems organization~Embedded systems}
-\ccsdesc[300]{Computer systems organization~Redundancy}
-\ccsdesc{Computer systems organization~Robotics}
-\ccsdesc[100]{Networks~Network reliability}
-
+\ccsdesc[500]{Mathematics of computing~Probabilistic algorithms}
+\ccsdesc[500]{Theory of computation~Numeric approximation algorithms}
+\ccsdesc[500]{Mathematics of computing~Mathematical software performance}
+\ccsdesc[300]{Software and its engineering~Software creation and management}
+\ccsdesc[300]{Software and its engineering~Collaboration in software development}
 %
 % End generated code
 %
 
 
-\keywords{adaptive sampling, function approximation, global optimization, quasi-Monte Carlo}
+\keywords{adaptive sampling, function approximation, global optimization, (quasi-)Monte Carlo, cubature, error analysis, stopping criteria}
 
 \maketitle
 
 \input{02_intro} 
-\input{03_overv}
 \input{04_algos}
 \input{05_examp}
 \input{06_concl}
 
 \begin{acks}
-Our work was supported in part by grants from the National Science Foundation under grant NSF-DMS-1115392, and the Office of Advanced Scientific Computing Research, Office of Science, U.S. Department of Energy, under contract DE-AC02-06CH11357.
+Our work was supported in part by grants from the National
+Science Foundation under grants NSF-DMS-1115392 and NSF-DMS-1522687, and the Office
+of Advanced Scientific Computing Research, Office of Science,
+U.S. Department of Energy, under contract DE-AC02-06CH11357.
   
-The authors would like to thank \scnote{TBD}.
+The authors would like to thank all GAIL contributors,
+especially Yuhan Ding, Lan Jiang, Llu\'is Antoni Jim\'enez
+Rugama, Aleksei Sorokin, and Yizhi Zhang.
 \end{acks}
 
 \bibliographystyle{ACM-Reference-Format} %abbrv

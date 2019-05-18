@@ -1,14 +1,12 @@
-& \multicolumn{4}{c}{d = 3,\ \varepsilon =  0.005}  \\ \hline
- \text{Method} & \text{MC}  & \text{Lattice} & \text{Sobol}  & \text{Bayes} \\
- \text{Absolute Error} & \num{0.00069} & \num{0.00043} & \num{0.00056}  & x \\
- \text{Tolerance Met} & \num{  100} \% & \num{  100} \% & \num{100} \%  & x \\
- n & \num{ 2600000} & \num{    4100} & \num{    4100}  &  x\\
- \text{Time (seconds)} & \num{ 0.1400} & \num{ 0.0069} & \num{ 0.0049} & x  
-%
-\\
-\\ & \multicolumn{4}{c}{d = 8,\ \varepsilon =   0.05} \\ \hline
- \text{Method} & \text{MC}  & \text{Lattice} & \text{Sobol}  & \text{Bayes} \\
- \text{Absolute Error} & \num{0.01100} & \num{0.01100} & \num{0.00400} & x \\
- \text{Tolerance Met} & \num{  100} \% & \num{  100} \% & \num{  100} \%  & x \\
-n & \num{ 7400000} & \num{   16000} & \num{   16000} & x \\
- \text{Time (seconds)}  & \num{ 0.9000} & \num{ 0.0210} & \num{ 0.0140}   & x
+& \multicolumn{4}{c}{d =   3,\ \varepsilon =  0.005} \\ \hline 
+ \text{Method} & \text{MC} & \text{Lattice} & \text{Sobol} & \text{Bayes}  \\
+ \text{Absolute Error} & \num{0.00120} & \num{0.00051} & \num{0.00053}  & \num{0.00043}  \\
+ \text{Tolerance Met} & \num{  100} \% & \num{  100} \% & \num{  100} \% & \num{  100} \%  \\
+ n & \num{ 2500000} & \num{    4100} & \num{    3900} & \num{    1000}  \\
+ \text{Time (seconds)} & \num{ 0.1400} & \num{ 0.0064} & \num{ 0.0034} & \num{ 0.0017}  
+ \\[-2ex] \\& \multicolumn{4}{c}{d =   8,\ \varepsilon =  0.050} \\ \hline 
+ \text{Method} & \text{MC} & \text{Lattice} & \text{Sobol} & \text{Bayes}  \\
+ \text{Absolute Error} & \num{0.01200} & \num{0.01500} & \num{0.00710}  & \num{0.00170}  \\
+ \text{Tolerance Met} & \num{  100} \% & \num{   99} \% & \num{  100} \% & \num{  100} \%  \\
+ n & \num{ 7400000} & \num{   15000} & \num{   16000} & \num{   66000}  \\
+ \text{Time (seconds)} & \num{ 0.8800} & \num{ 0.0240} & \num{ 0.0130} & \num{ 0.1700}  
