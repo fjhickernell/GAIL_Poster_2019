@@ -2,7 +2,7 @@
 \label{sec:concl}
 We have presented a short overview of GAIL with some motivating
 examples. GAIL and the research behind the software are still under active
-development. We list in the following some of the potentially fruitful
+development. We list some of the potentially fruitful
 directions to pursue in order to strengthen the software.
 
 For the existing algorithms, it would be worthy to conduct or develop
@@ -17,7 +17,7 @@ Instead of using \texttt{fminbnd} in Example~\ref{eg1}, it would be better
 to use solvers that are designed for global optimization such as those from
  MATLAB's Global Optimization Toolbox (GOT). That said, GOT does not
 guarantee returning global minimum; see~\cite{GOT}. Likewise, for 
-Example~\ref{eg4}, more extensive study can be done. An
+Example~\ref{eg4}, more extensive study can be done. Another
 idea is to price Asian options with GAIL cubatures and also
 \texttt{asianbyls} from MATLAB's Financial Instruments Toolbox.
 
@@ -28,7 +28,7 @@ algorithm does not require the integrand to be periodic, which opens up
 more possibilities. Additional improvements being developed are to add
 gradient in parameter searching; this will allow using gradient descent
 method instead of heuristic search, and could possibly speed up the algorithm.
-Shift-invariant kernel used in the algorithm is currently limited to order
+Shift-invariant kernels used in the algorithm are currently limited to order
 of even integers which is usually fixed. Enhancements are being developed
 to avoid this constraint.
 
@@ -38,10 +38,10 @@ Reliable cubatures are particularly important for valuing financial
 derivatives. GAIL already contains a few option-pricing functions,  
 namely, \texttt{assetPath}, \texttt{optPayoff}, and  \texttt{optPrice}. 
 However, they have yet to elevated as a first-class citizens in
-the software library, which have to be accompanied by detailed documentation
+the software library because they need to be accompanied by detailed documentation
 and unit tests suites.
 
-Currently, most of the GAIL algorithms are written and released in Matlab. Recently other computer languages are getting popular in scientific computing. Given the flexibility of GAIL software design, it could very well be ported or language interface is added to support Python, Julia and R languages.
+Currently, most of the GAIL algorithms are written and released in Matlab. Other computer languages have gained popularity in scientific computing. Given the flexibility of the GAIL software design, GAIL could very well be ported to support Python, Julia, and R.
 \begin{comment}
 \begin{enumerate}
 
